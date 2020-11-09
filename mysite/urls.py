@@ -10,6 +10,7 @@ from mysite.core.models import Book
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
     path('upload/', views.upload, name='upload'),
+    path('uploadlist',views.book_list, name='book_list'),
     path('home/', views.Home.as_view(), name='home'),
     path('contact_info', views.upload_book, name='upload_book'),
     path('books/<int:pk>/', views.delete_book, name='delete_book'),

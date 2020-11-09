@@ -37,7 +37,7 @@ def upload_book(request):
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home' )
+            return redirect('book_list' )
     else:
         form = BookForm()
     return render(request, 'upload_book.html', {
