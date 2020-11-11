@@ -3,12 +3,12 @@
 {% block content %}
 
   {% block content_header %}
-    <h2>Books</h2>
+    <h2>Job Seeker Information</h2>
     <p>
-      <a href="{% url 'upload_book' %}" class="btn btn-primary">Upload book</a>
+      <a href="{% url 'upload_book' %}" class="btn btn-primary">Apply For New Post</a>
     </p>
   {% endblock %}
-
+<div class="table-responsive">
   <table class="table mb-0">
     <thead>
       <tr>
@@ -17,7 +17,7 @@
         <th>E-mail</th>
         <th>Subject</th>
         <th>CoverLetter</th>
-        <th>Pdf</th>
+        <th>Resume</th>
    
       </tr>
     </thead>
@@ -26,7 +26,7 @@
         <tr>
           <td>
             {% if book.cover %}
-              <img src="{{ book.cover.url }}" alt="{{ book.name }}" style="width:100px;">
+              <img src="{{ book.cover.url }}" alt="{{ book.name }}" style="width:80px; height:100px;">
             {% else %}
               <span class="text-muted">No cover</span>
             {% endif %}
@@ -36,18 +36,14 @@
           <td>{{ book.subject }}</td>
           <td>{{ book.coverletter }}</td>
           <td>
-            <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
-              Download PDF
-            </a>
+            <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">{{book.name}} Resume</a>
           </td>
           <td>
-            <form method="post" action="{% url 'delete_book' book.pk %}">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-            </form>
+            
           </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+  </div>
 {% endblock %}
