@@ -14,7 +14,7 @@ import os
 import django_heroku
 import dj_database_url
 #from decouple import config
-import decouple
+import python_decouple
 import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
