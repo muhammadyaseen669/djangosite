@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'mysite.core',
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -153,8 +154,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.compressedMainfestStaticFilesStorage'
+
 
 django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
+
+AWS_ACCESS_KEY_ID = 'AKIARXO7THZW3Y37ULND'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'nccs-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
