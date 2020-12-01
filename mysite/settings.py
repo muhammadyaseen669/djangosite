@@ -18,15 +18,10 @@ import environ
 import django_heroku
 import dj_database_url
 import dotenv
-from decouple import config
+from decouple import config,Csv
 from dotenv import load_dotenv
+from boto.s3.connection import S3Connection
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env()
 
 
 
@@ -172,10 +167,11 @@ django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
-AWS_ACCESS_KEY_ID = 'AKIARXO7THZW3Y37ULND'
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS')
+AWS_ACCESS_KEY_ID = config('S3_ID')
+AWS_SECRET_ACCESS_KEY =config('S3_KEY')
 AWS_STORAGE_BUCKET_NAME = 'nccs-bucket'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
