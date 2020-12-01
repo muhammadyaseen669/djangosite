@@ -17,6 +17,7 @@ import os
 import django_heroku
 import dj_database_url
 import dotenv
+from decouple import config
 from dotenv import load_dotenv
 
 
@@ -161,7 +162,7 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 AWS_ACCESS_KEY_ID = 'AKIARXO7THZW3Y37ULND'
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS")
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'nccs-bucket'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
