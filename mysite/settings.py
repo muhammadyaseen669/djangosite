@@ -14,11 +14,15 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 #from decouple import config
 #import python_decouple
 import os
+import environ
 import django_heroku
 import dj_database_url
 import dotenv
 from decouple import config
 from dotenv import load_dotenv
+
+environ.Env.read_env()
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -162,7 +166,7 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 AWS_ACCESS_KEY_ID = 'AKIARXO7THZW3Y37ULND'
-AWS_SECRET_ACCESS_KEY ='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'
+AWS_SECRET_ACCESS_KEY = env(AWS_SECRET_ACCESS_KEY)
 AWS_STORAGE_BUCKET_NAME = 'nccs-bucket'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
