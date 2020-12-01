@@ -21,7 +21,14 @@ import dotenv
 from decouple import config
 from dotenv import load_dotenv
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
 environ.Env.read_env()
+
+
 
 
 
@@ -166,7 +173,7 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 AWS_ACCESS_KEY_ID = 'AKIARXO7THZW3Y37ULND'
-AWS_SECRET_ACCESS_KEY = env(AWS_SECRET_ACCESS_KEY)
+AWS_SECRET_ACCESS_KEY = env(AWS_SECRET_ACCESS)
 AWS_STORAGE_BUCKET_NAME = 'nccs-bucket'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
