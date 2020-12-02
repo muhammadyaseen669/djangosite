@@ -16,7 +16,8 @@
         <th>Name</th>
         <th>E-mail</th>
         <th>Subject</th>
-        <th>CoverLetter</th>
+        <th>skillset</th>
+        <th>coverletter</th>
         <th>Resume</th>
    
       </tr>
@@ -34,7 +35,9 @@
           <td>{{ book.name }}</td>
           <td>{{ book.email }}</td>
           <td>{{ book.subject }}</td>
+          <td>{{ book.skillset }}</td>
           <td>{{ book.coverletter }}</td>
+        
           <td>
             <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">{{book.name}} Resume</a>
           </td>
