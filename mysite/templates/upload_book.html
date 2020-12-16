@@ -3,10 +3,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h2>Your Personal Information</h2>
+
+  <u><h2>Your Personal Information For the Specific Position</h2></u><br>
   <form method="post" id="myform" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form|crispy }} 
-    <button type="submit" class="btn btn-primary">Upload</button>
+    {{ form|crispy}} 
+    <p class="text-justify font-weight-normal font-italic" >*Before Submitting, Make Sure you Enter the Correct Information!</p>
+    <button type="submit" class="btn btn-outline-success btn-lg btn-block">Submit</button>
   </form>
 {% endblock %}

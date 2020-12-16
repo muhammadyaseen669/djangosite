@@ -17,7 +17,8 @@
         <th>E-mail</th>
         <th>Subject</th>
         <th>skillset</th>
-        <th>coverletter</th>
+        <th>other skills</th>
+        <th>phone_no</th>
         <th>Resume</th>
    
       </tr>
@@ -36,7 +37,8 @@
           <td>{{ book.email }}</td>
           <td>{{ book.subject }}</td>
           <td>{{ book.skillset }}</td>
-          <td>{{ book.coverletter }}</td>
+          <td>{{book.skill_1}}, {{book.skill_2}},{{book.skill_3}},{{book.skill_4}},{{book.skill_5}}</td>
+          <td>{{ book.phone_no }}</td>
         
           <td>
             <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">{{book.name}} Resume</a>
