@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'mysite.core',
     'storages',
     'multiselectfield',
+    'phonenumber_field',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
